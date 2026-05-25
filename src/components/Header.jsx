@@ -42,7 +42,15 @@ function Header () {
         </div>
         <div className="navbar-text">
           {context.user.name
-            ? <div>Bienvenue {context.user.name}</div>
+            ? <div className="d-flex align-items-center gap-2">
+              <span>Bienvenue {context.user.name}</span>
+              <button
+                className={classnames('btn btn-sm', context.theme === 'light' ? 'btn-outline-light' : 'btn-outline-dark')}
+                onClick={() => dispatch({ type: 'logout' })}
+              >
+                Déconnexion
+              </button>
+            </div>
             : <div>
               <Link to="/login">Connectez-vous</Link>
               <br/>ou&nbsp;

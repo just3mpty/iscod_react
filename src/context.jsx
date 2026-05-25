@@ -11,6 +11,8 @@ const reducer = (state, action) => {
       return { ...state, theme: state.theme === 'light' ? 'dark' : 'light' }
     case 'setUser':
       return { ...state, user: action.payload }
+    case 'logout':
+      return { ...state, user: {} }
     default:
       throw Error('Unknown action in context reducer.')
   }
